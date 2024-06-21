@@ -388,10 +388,10 @@ def fused_gromov_wasserstein(M, C1, C2, p=None, q=None, loss_fun='square_loss', 
     alpha : float, optional
         Trade-off parameter (0 < alpha < 1)
     armijo : bool, optional
-        If True the step of the line-search is found via an armijo research. Else closed form is used.
-        If there are convergence issues use False.
+        If True the step of the line-search is found via an armijo search. Else closed form is used.
+        If there are convergence issues, use False.
     G0: array-like, shape (ns,nt), optional
-        If None the initial transport plan of the solver is pq^T.
+        If None, the initial transport plan of the solver is pq^T.
         Otherwise G0 must satisfy marginal constraints and will be used as initial transport of the solver.
     log : bool, optional
         record log if True
@@ -482,7 +482,7 @@ def fused_gromov_wasserstein(M, C1, C2, p=None, q=None, loss_fun='square_loss', 
             return solve_gromov_linesearch(G, deltaG, cost_G, hC1, hC2, M=(1 - alpha) * M, reg=alpha, nx=np_, symmetric=symmetric, **kwargs)
     if not nx.is_floating_point(M0):
         warnings.warn(
-            "Input feature matrix consists of integer. The transport plan will be "
+            "Input feature matrix consists of integers. The transport plan will be "
             "casted accordingly, possibly resulting in a loss of precision. "
             "If this behaviour is unwanted, please make sure your input "
             "feature matrix consists of floating point elements.",
