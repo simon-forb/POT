@@ -175,7 +175,7 @@ def gromov_wasserstein(C1, C2, p=None, q=None, loss_fun='square_loss', symmetric
 
     if not nx.is_floating_point(C10):
         warnings.warn(
-            "Input structure matrix consists of integer. The transport plan will be "
+            "Input structure matrix consists of integers. The transport plan will be "
             "casted accordingly, possibly resulting in a loss of precision. "
             "If this behaviour is unwanted, please make sure your input "
             "structure matrix consists of floating point elements.",
